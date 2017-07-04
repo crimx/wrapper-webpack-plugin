@@ -1,9 +1,11 @@
-#A webpack plugin that wraps output files (chunks) with custom text or code.
+A webpack plugin that wraps output files (chunks) with custom text or code.
+
+**The original owner had stopped maintaining so I released a different version on npm.**
 
 ## Installation
 
 Install locally using npm:  
-`npm i wrapper-webpack-plugin`
+`npm i wrapper-webpack-plugin2`
 
 ## Usage
 
@@ -14,9 +16,9 @@ name of the output file as an argument.
 
 ## API
 
-```
+```javascript
 function WrapperPlugin({
-    test: RegExp, string,
+    test: RegExp | string,
     header: string | function,
     footer: string | function
 })
@@ -27,7 +29,7 @@ function WrapperPlugin({
 Wraps bundles in a self invoking function and enables strict mode:
 
 ```javascript
-var WrapperPlugin = require('wrapper-webpack-plugin');
+var WrapperPlugin = require('wrapper-webpack-plugin2');
 
 module.exports = {
   // other webpack config here
@@ -48,7 +50,7 @@ module.exports = {
 Prepends bundle with a doc comment:
 
 ```javascript
-var WrapperPlugin = require('wrapper-webpack-plugin');
+var WrapperPlugin = require('wrapper-webpack-plugin2');
 
 module.exports = {
   // other webpack config here
@@ -77,7 +79,7 @@ file: `header.js`
 file: `webpack.config`
 ```javascript
 var fs = require('fs');
-var WrapperPlugin = require('wrapper-webpack-plugin');
+var WrapperPlugin = require('wrapper-webpack-plugin2');
 
 var headerDoc = fs.readFileSync('./header.js', 'utf8');
 
@@ -97,7 +99,7 @@ module.exports = {
 A slightly more complex example using `lodash` templates:
 
 ```javascript
-var WrapperPlugin = require('wrapper-webpack-plugin');
+var WrapperPlugin = require('wrapper-webpack-plugin2');
 var template = require('lodash.template');
 var pkg = require('./package.json');
 
